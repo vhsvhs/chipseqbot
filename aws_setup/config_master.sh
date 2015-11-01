@@ -31,3 +31,17 @@ source venv/bin/activate
 sudo apt-get install libpq-dev python-dev
 sudo pip install -r requirements/prod.txt
 
+# Install Nginx
+sudo apt-get install nginx
+
+# Setup the Nginx configuration file
+sudo mv /etc/nginx/nginx.conf /etc/nginx/nginx.conf.old
+sudo cp aws_setup/nginx.conf /etc/nginx/nginx.conf
+
+# Launch Nginx
+sudo /etc/init.d/nginx start
+
+# Use Gunicorn to start hosting chipseqbot
+cd chipseqbot
+gunicorn -w 4 config.wsgi
+
