@@ -10,7 +10,9 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 """
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-from os.path import abspath, basename, join, normpath
+from os.path import abspath, basename, join, normpath, dirname
+from os import listdir, environ
+from sys import path
 
 ########## PATH CONFIGURATION
 # Absolute filesystem path to the config directory:
@@ -42,7 +44,7 @@ from django.core.exceptions import ImproperlyConfigured
 def get_env_variable(var_name):
     """Get the env. variable, or return exception"""
     try:
-        return os.environ[var_name]
+        return environ[var_name]
     except KeyError:
         error_msg = "Set the {} environment variable".format(var_name)
         raise ImproperlyConfigured(error_msg)
@@ -92,17 +94,15 @@ DJANGO_APPS = (
     'django.contrib.staticfiles',
 )
 
-THIRD_PARTY_APPS = {
-    'authtools',
-}
+THIRD_PARTY_APPS = (
+    #'authtools',
+)
 
-PROJECT_APPS = {
-    'apps.accounts',
-}
+PROJECT_APPS = (
+    #'apps.accounts',
+)
 
-EXTENSION_APPS = {}
-
-INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + PROJECT_APPS + EXTENSION_APPS
+INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + PROJECT_APPS
 ########## END APP CONFIGURATION
 
 
@@ -121,7 +121,7 @@ ROOT_URLCONF = 'config.urls'
 
 WSGI_APPLICATION = 'config.wsgi.application'
 
-AUTH_USER_MODEL = 'accounts.User'
+#AUTH_USER_MODEL = 'accounts.User'
 
 
 ########## LOGIN/LOGOUT CONFIGURATION
