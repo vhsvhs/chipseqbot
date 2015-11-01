@@ -29,5 +29,5 @@ source venv/bin/activate
 
 # Install Python packages
 sudo apt-get install libpq-dev python-dev
-sudo pip install requirements/dev.txt
+sudo pip install requirements/prod.txt
 
