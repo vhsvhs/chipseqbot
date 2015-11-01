@@ -11,10 +11,23 @@
 # Contact your system admin. to retrieve the appropriate keys.
 #
 #
-# USAGE:
+# USAGE on a fresh Ubuntu machine:
 # 
+# sudo apt-get install git
+# git clone https://github.com/vhsvhs/chipseqbot
 # cd chipseqbot
-# sudo source aws_setup/config_master.sh
+# sudo source aws_setup/config_master.sh --> launches this script
+#
 
+# Install PIP
+sudo apt-get install python-pip
 
+# Install and launch virtualenv
+sudo pip install virtualenv
+virtualenv venv
+source venv/bin/activate
+
+# Install Python packages
+sudo apt-get install libpq-dev python-dev
+sudo pip install requirements/dev.txt
 
