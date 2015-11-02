@@ -11,8 +11,8 @@
 # Contact your system admin. to retrieve the appropriate keys.
 #
 #
-# USAGE on a fresh Ubuntu machine:
-# 
+# USAGE on a fresh Ubuntu machine (first read REQUIREMENTS):
+#
 # sudo apt-get install git
 # git clone https://github.com/vhsvhs/chipseqbot
 # cd chipseqbot
@@ -24,7 +24,7 @@ sudo apt-get update
 sudo apt-get install python-django
 
 # Install PIP
-sudo apt-get install python-pip
+sudo apt-get -y install python-pip
 
 # Install and launch virtualenv
 sudo pip install virtualenv
@@ -32,14 +32,14 @@ virtualenv venv
 source venv/bin/activate
 
 # Install Python packages
-sudo apt-get install libpq-dev python-dev
+sudo apt-get -y install libpq-dev python-dev
 sudo pip install -r requirements/prod.txt
 
 # Install Django
-sudo apt-get install python-django
+sudo apt-get -y install python-django
 
 # Install Nginx
-sudo apt-get install nginx
+sudo apt-get -y install nginx
 
 # Setup the Nginx configuration file
 sudo mv /etc/nginx/sites-available/default /etc/nginx/sites-available/default.old
