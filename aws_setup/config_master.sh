@@ -21,22 +21,22 @@
 
 # Update apt-get
 sudo apt-get -y update
-#sudo apt-get -y install python-django
 
 # Install PIP
 sudo apt-get -y install python-pip
 
 # Install and launch virtualenv
-##sudo pip install virtualenv
-#virtualenv venv
-#source venv/bin/activate
+sudo pip install virtualenv
+virtualenv venv
+source venv/bin/activate
 
 # Install Python packages
-##sudo pip install django
+sudo pip install django
 sudo apt-get -y install libpq-dev python-dev
-#sudo pip install -r requirements/prod.txt
+sudo pip install -r requirements/prod.txt
 
 # Install Nginx
+# (In Ubuntu, nginx will auto start upon installation)
 sudo apt-get -y install nginx
 
 # Setup the Nginx configuration file
@@ -44,7 +44,9 @@ sudo apt-get -y install nginx
 #sudo cp aws_setup/nginx.conf /etc/nginx/nginx.conf
 #sudo cp aws_setup/chipseqbot.conf /etc/nginx/conf.d/chipseqbot.conf
 
-# Launch Nginx
+# Launch Nginx with the new configuration
+sudo /etc/init.d/nginx stop
+sudo /etc/init.d/nginx reload
 sudo /etc/init.d/nginx start
 
 # Launch Gunicorn
