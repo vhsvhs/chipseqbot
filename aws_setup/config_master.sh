@@ -16,7 +16,7 @@
 # sudo apt-get install git
 # git clone https://github.com/vhsvhs/chipseqbot
 # cd chipseqbot
-# sudo source aws_setup/config_master.sh --> launches this script
+# source aws_setup/config_master.sh --> launches this script
 #
 
 # Update apt-get
@@ -42,14 +42,14 @@ sudo apt-get -y install python-django
 sudo apt-get -y install nginx
 
 # Setup the Nginx configuration file
-sudo mv /etc/nginx/nginx.conf /etc/nginx/nginx.conf.old
-sudo cp aws_setup/nginx.conf /etc/nginx/nginx.conf
-sudo cp aws_setup/chipseqbot.conf /etc/nginx/conf.d/chipseqbot.conf
+#sudo mv /etc/nginx/nginx.conf /etc/nginx/nginx.conf.old
+#sudo cp aws_setup/nginx.conf /etc/nginx/nginx.conf
+#sudo cp aws_setup/chipseqbot.conf /etc/nginx/conf.d/chipseqbot.conf
 
 # Launch Nginx
 sudo /etc/init.d/nginx start
 
 # Launch Gunicorn
-cd chipseqbot
-gunicorn -w 4 config.wsgi
+#cd chipseqbot
+#gunicorn -w 4 config.wsgi
 
