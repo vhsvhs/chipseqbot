@@ -13,7 +13,7 @@
 #
 # USAGE on a fresh Ubuntu machine (first read REQUIREMENTS):
 #
-# sudo apt-get install git
+# sudo apt-get -y install git
 # git clone https://github.com/vhsvhs/chipseqbot
 # cd chipseqbot
 # source aws_setup/config_master.sh --> launches this script
@@ -27,17 +27,14 @@ sudo apt-get -y update
 sudo apt-get -y install python-pip
 
 # Install and launch virtualenv
-sudo pip install virtualenv
-virtualenv venv
-source venv/bin/activate
+##sudo pip install virtualenv
+#virtualenv venv
+#source venv/bin/activate
 
 # Install Python packages
-#sudo pip install django
+##sudo pip install django
 sudo apt-get -y install libpq-dev python-dev
-sudo pip install -r requirements/prod.txt
-
-# Install Django
-sudo apt-get -y install python-django
+#sudo pip install -r requirements/prod.txt
 
 # Install Nginx
 sudo apt-get -y install nginx
