@@ -42,15 +42,14 @@ sudo apt-get -y install python-django
 sudo apt-get -y install nginx
 
 # Setup the Nginx configuration file
-sudo mv /etc/nginx/nginx.conf /etc/nginx/nginx.conf.backup
+sudo mv /etc/nginx/nginx.conf /etc/nginx/nginx.conf.old
 sudo cp aws_setup/nginx.conf /etc/nginx/nginx.conf
 sudo cp aws_setup/chipseqbot.conf /etc/nginx/conf.d/chipseqbot.conf
 
-
-# Launch Nginx to listen on port 80
+# Launch Nginx
 sudo /etc/init.d/nginx start
 
-# Use Gunicorn to start hosting chipseqbot on port 8000
+# Launch Gunicorn
 cd chipseqbot
 gunicorn -w 4 config.wsgi
 
