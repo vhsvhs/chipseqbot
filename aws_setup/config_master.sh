@@ -20,8 +20,8 @@
 #
 
 # Update apt-get
-sudo apt-get update
-sudo apt-get install python-django
+sudo apt-get -y update
+#sudo apt-get -y install python-django
 
 # Install PIP
 sudo apt-get -y install python-pip
@@ -32,6 +32,7 @@ virtualenv venv
 source venv/bin/activate
 
 # Install Python packages
+#sudo pip install django
 sudo apt-get -y install libpq-dev python-dev
 sudo pip install -r requirements/prod.txt
 
