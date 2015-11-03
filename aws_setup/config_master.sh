@@ -42,8 +42,10 @@ sudo apt-get -y install python-django
 sudo apt-get -y install nginx
 
 # Setup the Nginx configuration file
-sudo mv /etc/nginx/sites-available/default /etc/nginx/sites-available/default.old
-sudo cp aws_setup/nginx.conf /etc/nginx/sites-available/default
+sudo mv /etc/nginx/nginx.conf /etc/nginx/nginx.conf.backup
+sudo cp aws_setup/nginx.conf /etc/nginx/nginx.conf
+sudo cp aws_setup/chipseqbot.conf /etc/nginx/conf.d/chipseqbot.conf
+
 
 # Launch Nginx to listen on port 80
 sudo /etc/init.d/nginx start
