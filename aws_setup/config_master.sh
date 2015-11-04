@@ -39,9 +39,9 @@ sudo pip install -r requirements/prod.txt
 sudo apt-get -y install nginx
 
 # Setup the Nginx configuration files
-#sudo mv /etc/nginx/nginx.conf /etc/nginx/nginx.conf.old
-#sudo cp aws_setup/nginx.conf /etc/nginx/nginx.conf
-#sudo cp aws_setup/chipseqbot.conf /etc/nginx/conf.d/chipseqbot.conf
+sudo mv /etc/nginx/nginx.conf /etc/nginx/nginx.conf.old
+sudo cp aws_setup/nginx.conf /etc/nginx/nginx.conf
+sudo cp aws_setup/chipseqbot.conf /etc/nginx/conf.d/chipseqbot.conf
 
 # Launch Nginx with the new configuration.
 # Because nginx is launched upong installation (in previous steps), 
