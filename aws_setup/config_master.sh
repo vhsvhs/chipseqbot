@@ -10,7 +10,6 @@
 # This script retrieves secret keys from environmental variables.
 # Contact your system admin. to retrieve the appropriate keys.
 #
-#
 # USAGE on a fresh Ubuntu machine (first read REQUIREMENTS):
 #
 # sudo apt-get -y install git
@@ -39,17 +38,20 @@ sudo pip install -r requirements/prod.txt
 # (In Ubuntu, nginx will auto start upon installation)
 sudo apt-get -y install nginx
 
-# Setup the Nginx configuration file
+# Setup the Nginx configuration files
 #sudo mv /etc/nginx/nginx.conf /etc/nginx/nginx.conf.old
 #sudo cp aws_setup/nginx.conf /etc/nginx/nginx.conf
 #sudo cp aws_setup/chipseqbot.conf /etc/nginx/conf.d/chipseqbot.conf
 
-# Launch Nginx with the new configuration
+# Launch Nginx with the new configuration.
+# Because nginx is launched upong installation (in previous steps), 
+# we need to restart nginx to ensure that correct configurations
+# are loaded.
 sudo /etc/init.d/nginx stop
 sudo /etc/init.d/nginx reload
 sudo /etc/init.d/nginx start
 
 # Launch Gunicorn
-#cd chipseqbot
-#gunicorn -w 4 config.wsgi
+cd chipseqbot # change directories to the location where manage.py lives
+gunicorn -w 4 config.wsgi
 
