@@ -56,11 +56,11 @@ sudo /etc/init.d/nginx start
 #
 # Setup the project database
 #
-python manage.py makemigrations
-python manage.py migrate
-python manage.py createsuperuser
+cd chipseqbot # change directories to the location where manage.py lives
+#python manage.py makemigrations
+#python manage.py migrate
+#python manage.py createsuperuser
 
 # Launch Gunicorn
-cd chipseqbot # change directories to the location where manage.py lives
 gunicorn -w 4 config.wsgi
 
