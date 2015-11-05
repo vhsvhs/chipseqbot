@@ -169,7 +169,7 @@ USE_TZ = True
 STATIC_ROOT = normpath(join(PROJECT_ROOT, 'static'))
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS= (STATIC_PATH,)
+STATICFILES_DIRS= (STATIC_ROOT,)
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(STATIC_PATH, "media")
