@@ -166,12 +166,9 @@ USE_TZ = True
 
 ########## STATIC FILE CONFIGURATION
 # https://docs.djangoproject.com/en/dev/ref/settings/#static-root
-os.path.join(SETTINGS_DIR, os.pardir)
-PROJECT_PATH = os.path.abspath(PROJECT_PATH)
-STATIC_ROOT = normpath(join(PROJECT_PATH, 'static'))
-
+STATIC_ROOT = normpath(join(PROJECT_ROOT, 'static'))
 STATIC_URL = '/static/'
-STATICFILES_DIRS= (STATIC_ROOT,)
+#STATICFILES_DIRS= (STATIC_ROOT,)
 MEDIA_URL = '/media/'
 MEDIA_ROOT = normpath( join(STATIC_ROOT, "media") )
 
