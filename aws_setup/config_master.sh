@@ -25,13 +25,15 @@ sudo apt-get -y update
 sudo apt-get -y install python-pip
 
 # Install and launch virtualenv
-sudo pip install virtualenv
-virtualenv venv
-source venv/bin/activate
+#sudo pip install virtualenv
+#virtualenv venv
+#source venv/bin/activate
 
 # Install PostgreSQL
 sudo apt-get -y install postgresql
 sudo apt-get -y install libpq-dev
+sudo -u postgres createuser -s $USER
+createdb -U $USER --locale=en_US.utf-8 -E utf-8 -O $USER chipseqbotdb -T
 
 # Install Python packages
 sudo apt-get -y install python-dev
@@ -53,13 +55,14 @@ sudo /etc/init.d/nginx stop
 sudo /etc/init.d/nginx reload
 sudo /etc/init.d/nginx start
 
+
 #
 # Setup the project database
 #
 cd chipseqbot # change directories to the location where manage.py lives
-#python manage.py makemigrations
-#python manage.py migrate
-#python manage.py createsuperuser
+python manage.py makemigrations
+python manage.py migrate
+python manage.py createsuperuser
 
 # Launch Gunicorn
 gunicorn -w 4 config.wsgi
