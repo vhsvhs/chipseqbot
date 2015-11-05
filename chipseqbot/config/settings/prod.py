@@ -22,18 +22,6 @@ ALLOWED_HOSTS = [PROJECT_DOMAIN, 'localhost', '127.0.0.1']
 
 DEBUG = False
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': '%s-dev' % PROJECT_NAME.lower(),
-        'USER': '',
-        'PASSWORD': '',
-        'HOST': 'localhost',
-        'PORT': '5432',
-    }
-}
-
-
 ########## EMAIL CONFIGURATION
 # https://docs.djangoproject.com/en/dev/ref/settings/#email-use-tls
 EMAIL_USE_TLS = True

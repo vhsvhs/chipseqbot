@@ -30,9 +30,12 @@ virtualenv venv
 source venv/bin/activate
 
 # Install Python packages
-sudo pip install django
-sudo apt-get -y install libpq-dev python-dev
+sudo apt-get -y install python-dev
 sudo pip install -r requirements/prod.txt
+
+# Install PostgreSQL
+sudo apt-get install postgresql
+sudo apt-get install libpq-dev
 
 # Install Nginx
 # (In Ubuntu, nginx will auto start upon installation)
@@ -49,6 +52,13 @@ sudo cp aws_setup/nginx.conf /etc/nginx/nginx.conf
 sudo /etc/init.d/nginx stop
 sudo /etc/init.d/nginx reload
 sudo /etc/init.d/nginx start
+
+#
+# Setup the project database
+#
+python manage.py makemigrations
+python manage.py migrate
+python manage.py createsuperuser
 
 # Launch Gunicorn
 cd chipseqbot # change directories to the location where manage.py lives

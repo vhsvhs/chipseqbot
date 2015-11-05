@@ -14,6 +14,18 @@ from os.path import abspath, basename, join, normpath, dirname
 from os import listdir, environ
 from sys import path
 
+from django.core.exceptions import ImproperlyConfigured
+def get_env_variable(var_name):
+    """Get the env. variable, or return exception"""
+    try:
+        return environ[var_name]
+    except KeyError:
+        error_msg = "Set the {} environment variable".format(var_name)
+        raise ImproperlyConfigured(error_msg)
+
+# URL of the login page.
+LOGIN_URL = '/login/'
+
 ########## PATH CONFIGURATION
 # Absolute filesystem path to the config directory:
 CONFIG_ROOT = dirname(dirname(abspath(__file__)))
@@ -37,17 +49,6 @@ PROJECT_DOMAIN = '%s.com' % PROJECT_NAME.lower()
 # name in our dotted import paths:
 path.append(CONFIG_ROOT)
 ########## END PATH CONFIGURATION
-
-
-from django.core.exceptions import ImproperlyConfigured
-
-def get_env_variable(var_name):
-    """Get the env. variable, or return exception"""
-    try:
-        return environ[var_name]
-    except KeyError:
-        error_msg = "Set the {} environment variable".format(var_name)
-        raise ImproperlyConfigured(error_msg)
 
 
 ########## EMAIL CONFIGURATION
@@ -83,6 +84,7 @@ TEMPLATE_DEBUG = False
 
 ALLOWED_HOSTS = []
 
+#AUTH_PROFILE_MODULE = 'phylobot.UserProfile'
 
 ########## Application definition
 DJANGO_APPS = (
@@ -100,6 +102,9 @@ THIRD_PARTY_APPS = (
 
 PROJECT_APPS = (
     #'apps.accounts',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
 )
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + PROJECT_APPS
@@ -116,6 +121,17 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
+DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+            'NAME': 'chipseqbotdb',                      # Or path to database file if using sqlite3.
+            # The following settings are not used with sqlite3:
+            'USER': 'chipseqbot',
+            'PASSWORD': 'password',
+            'HOST': 'localhost',                      # Empty for localhost through domain sockets or           '127.0.0.1' for localhost through TCP.
+            'PORT': '',                      # Set to empty string for default.
+        }
+    }
 
 ROOT_URLCONF = 'config.urls'
 
