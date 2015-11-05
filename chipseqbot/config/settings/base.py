@@ -26,6 +26,9 @@ def get_env_variable(var_name):
 # URL of the login page.
 LOGIN_URL = '/login/'
 
+ROOT_DIR = environ.Path(__file__) - 3  # (/a/b/myfile.py - 3 = /)
+APPS_DIR = ROOT_DIR.path('{{ cookiecutter.repo_name }}')
+
 ########## PATH CONFIGURATION
 # Absolute filesystem path to the config directory:
 CONFIG_ROOT = dirname(dirname(abspath(__file__)))
@@ -92,6 +95,7 @@ DJANGO_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
+    'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
 )
@@ -166,21 +170,18 @@ USE_TZ = True
 
 ########## STATIC FILE CONFIGURATION
 # https://docs.djangoproject.com/en/dev/ref/settings/#static-root
-#STATIC_ROOT = normpath(join(PROJECT_ROOT, 'static'))
-STATIC_ROOT = ''
+STATIC_ROOT = str(ROOT_DIR('staticfiles'))
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (
-    normpath( join(PROJECT_ROOT, 'static/') ),
+    str(APPS_DIR.path('static')),
 )
-#STATICFILES_DIRS= (STATIC_ROOT,)
-MEDIA_URL = '/media/'
-MEDIA_ROOT = normpath( join(STATIC_ROOT, "media") )
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+)
 
-# https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#staticfiles-finders
-# STATICFILES_FINDERS = (
-#     'django.contrib.staticfiles.finders.FileSystemFinder',
-#     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-#     'pipeline.finders.PipelineFinder',
-#     'pipeline.finders.CachedFileFinder',
-# )
+MEDIA_ROOT = str(APPS_DIR('media'))
+
+# See: https://docs.djangoproject.com/en/dev/ref/settings/#media-url
+MEDIA_URL = '/media/'
 ########## END STATIC FILE CONFIGURATION
