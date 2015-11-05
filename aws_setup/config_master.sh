@@ -30,10 +30,20 @@ sudo apt-get -y install python-pip
 #source venv/bin/activate
 
 # Install PostgreSQL
-sudo apt-get -y install postgresql
-sudo apt-get -y install libpq-dev
-createuser -w -s $USER
-createdb -U $USER --locale=en_US.utf-8 -E utf-8 -W iforgotit -O $USER chipseqbotdb
+sudo apt-get -y install postgresql postgresql-contrib libpq-dev
+
+sudo su - postgres
+psql << EOF
+CREATE DATABASE csdb;
+CREATE USER csuser WITH PASSWORD ÔcspassÕ;
+ALTER ROLE csuser SET client_encoding TO Ôutf8Õ;
+ALTER ROLE csuser SET timezone TO ÔPSTÕ;
+GRANT ALL PRIVILEGES ON DATABASE csdb TO csuser;
+\q << EOF
+EOF
+
+#createuser -w -s $USER
+#createdb -U $USER --locale=en_US.utf-8 -E utf-8 -W iforgotit -O $USER chipseqbotdb
 
 # Install Python packages
 sudo apt-get -y install python-dev
