@@ -26,9 +26,6 @@ def get_env_variable(var_name):
 # URL of the login page.
 LOGIN_URL = '/login/'
 
-ROOT_DIR = environ.Path(__file__) - 3  # (/a/b/myfile.py - 3 = /)
-APPS_DIR = ROOT_DIR.path('{{ cookiecutter.repo_name }}')
-
 ########## PATH CONFIGURATION
 # Absolute filesystem path to the config directory:
 CONFIG_ROOT = dirname(dirname(abspath(__file__)))
@@ -170,7 +167,7 @@ USE_TZ = True
 
 ########## STATIC FILE CONFIGURATION
 # https://docs.djangoproject.com/en/dev/ref/settings/#static-root
-STATIC_ROOT = str(ROOT_DIR('staticfiles'))
+STATIC_ROOT = str(PROJECT_ROOT('staticfiles'))
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     str(APPS_DIR.path('static')),
