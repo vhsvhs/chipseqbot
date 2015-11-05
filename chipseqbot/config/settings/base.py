@@ -30,6 +30,8 @@ LOGIN_URL = '/login/'
 # Absolute filesystem path to the config directory:
 CONFIG_ROOT = dirname(dirname(abspath(__file__)))
 
+ROOT_DIR = environ.Path(__file__) - 3  # (/a/b/myfile.py - 3 = /)
+
 # Absolute filesystem path to the project directory:
 PROJECT_ROOT = dirname(CONFIG_ROOT)
 
@@ -167,7 +169,8 @@ USE_TZ = True
 
 ########## STATIC FILE CONFIGURATION
 # https://docs.djangoproject.com/en/dev/ref/settings/#static-root
-STATIC_ROOT = str(PROJECT_ROOT('staticfiles'))
+#STATIC_ROOT = str(PROJECT_ROOT('staticfiles'))
+STATIC_ROOT = str(ROOT_DIR('staticfiles'))
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     str(APPS_DIR.path('static')),
