@@ -171,7 +171,7 @@ STATIC_ROOT = normpath(join(PROJECT_ROOT, 'static'))
 STATIC_URL = '/static/'
 STATICFILES_DIRS= (STATIC_ROOT,)
 MEDIA_URL = '/media/'
-MEDIA_ROOT = normpath( joint(STATIC_ROOT, "media") )
+MEDIA_ROOT = normpath( join(STATIC_ROOT, "media") )
 
 # https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#staticfiles-finders
 # STATICFILES_FINDERS = (
