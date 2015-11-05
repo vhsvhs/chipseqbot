@@ -30,11 +30,8 @@ LOGIN_URL = '/login/'
 # Absolute filesystem path to the config directory:
 CONFIG_ROOT = dirname(dirname(abspath(__file__)))
 
-
-
 # Absolute filesystem path to the project directory:
 PROJECT_ROOT = dirname(CONFIG_ROOT)
-ROOT_DIR = PROJECT_ROOT
 
 # Absolute filesystem path to the django repo directory:
 DJANGO_ROOT = dirname(PROJECT_ROOT)
@@ -171,17 +168,15 @@ USE_TZ = True
 ########## STATIC FILE CONFIGURATION
 # https://docs.djangoproject.com/en/dev/ref/settings/#static-root
 #STATIC_ROOT = str(PROJECT_ROOT('staticfiles'))
-STATIC_ROOT = str(ROOT_DIR('staticfiles'))
+STATIC_ROOT = join(PROJECT_ROOT, 'static')
 STATIC_URL = '/static/'
-STATICFILES_DIRS = (
-    str(APPS_DIR.path('static')),
-)
+
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 )
 
-MEDIA_ROOT = str(APPS_DIR('media'))
+MEDIA_ROOT = join(STATIC_ROOT, 'media')
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#media-url
 MEDIA_URL = '/media/'
