@@ -29,13 +29,13 @@ sudo pip install virtualenv
 virtualenv venv
 source venv/bin/activate
 
+# Install PostgreSQL
+sudo apt-get -y install postgresql
+sudo apt-get -y install libpq-dev
+
 # Install Python packages
 sudo apt-get -y install python-dev
 sudo pip install -r requirements/prod.txt
-
-# Install PostgreSQL
-sudo apt-get install postgresql
-sudo apt-get install libpq-dev
 
 # Install Nginx
 # (In Ubuntu, nginx will auto start upon installation)
