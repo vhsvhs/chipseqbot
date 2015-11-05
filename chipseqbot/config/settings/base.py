@@ -166,7 +166,9 @@ USE_TZ = True
 
 ########## STATIC FILE CONFIGURATION
 # https://docs.djangoproject.com/en/dev/ref/settings/#static-root
-STATIC_ROOT = normpath(join(PROJECT_ROOT, 'static'))
+os.path.join(SETTINGS_DIR, os.pardir)
+PROJECT_PATH = os.path.abspath(PROJECT_PATH)
+STATIC_ROOT = normpath(join(PROJECT_PATH, 'static'))
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS= (STATIC_ROOT,)
