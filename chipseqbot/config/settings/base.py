@@ -30,10 +30,11 @@ LOGIN_URL = '/login/'
 # Absolute filesystem path to the config directory:
 CONFIG_ROOT = dirname(dirname(abspath(__file__)))
 
-ROOT_DIR = environ.Path(__file__) - 3  # (/a/b/myfile.py - 3 = /)
+
 
 # Absolute filesystem path to the project directory:
 PROJECT_ROOT = dirname(CONFIG_ROOT)
+ROOT_DIR = PROJECT_ROOT
 
 # Absolute filesystem path to the django repo directory:
 DJANGO_ROOT = dirname(PROJECT_ROOT)
