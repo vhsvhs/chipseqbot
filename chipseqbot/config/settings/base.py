@@ -184,10 +184,10 @@ STATICFILES_DIRS = (
 )
 
 # https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#staticfiles-finders
-STATICFILES_FINDERS = (
-    'django.contrib.staticfiles.finders.FileSystemFinder',
-    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-    #'pipeline.finders.PipelineFinder',
-    #'pipeline.finders.CachedFileFinder',
-)
+# STATICFILES_FINDERS = (
+#     'django.contrib.staticfiles.finders.FileSystemFinder',
+#     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+#     'pipeline.finders.PipelineFinder',
+#     'pipeline.finders.CachedFileFinder',
+# )
 ########## END STATIC FILE CONFIGURATION
