@@ -32,8 +32,8 @@ sudo apt-get -y install python-pip
 # Install PostgreSQL
 sudo apt-get -y install postgresql
 sudo apt-get -y install libpq-dev
-sudo -u postgres createuser -s $USER
-createdb -U $USER --locale=en_US.utf-8 -E utf-8 -O $USER chipseqbotdb -T
+createuser -w -s $USER
+createdb -U $USER --locale=en_US.utf-8 -E utf-8 -O $USER chipseqbotdb -T -w
 
 # Install Python packages
 sudo apt-get -y install python-dev
