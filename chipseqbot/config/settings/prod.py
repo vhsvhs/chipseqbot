@@ -19,7 +19,6 @@ import os
 ALLOWED_HOSTS = [PROJECT_DOMAIN, 'localhost', '127.0.0.1']
 ########## END HOST CONFIGURATION
 
-
 DEBUG = False
 
 ########## EMAIL CONFIGURATION

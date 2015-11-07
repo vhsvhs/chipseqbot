@@ -65,6 +65,7 @@ sudo /etc/init.d/nginx start
 cd chipseqbot # change directories to the location where manage.py lives
 python manage.py createsuperuser # --> this will prompt you for a new username and password
 python manage.py collectstatic
+python manage.py migrate
 
 # Launch Gunicorn
 gunicorn -w 4 config.wsgi

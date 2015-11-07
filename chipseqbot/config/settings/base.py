@@ -164,12 +164,15 @@ USE_L10N = True
 
 USE_TZ = True
 
+SITE_ID=1
 
 ########## STATIC FILE CONFIGURATION
 # https://docs.djangoproject.com/en/dev/ref/settings/#static-root
 #STATIC_ROOT = str(PROJECT_ROOT('staticfiles'))
 STATIC_ROOT = join(PROJECT_ROOT, 'static')
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [os.path.join(PROJECT_ROOT, 'static')]
 
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
