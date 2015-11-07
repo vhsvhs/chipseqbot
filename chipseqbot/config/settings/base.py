@@ -172,7 +172,7 @@ SITE_ID=1
 STATIC_ROOT = join(PROJECT_ROOT, 'static')
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = [os.path.join(PROJECT_ROOT, 'static')]
+STATICFILES_DIRS = [join(PROJECT_ROOT, 'static')]
 
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
