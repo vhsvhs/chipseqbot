@@ -63,6 +63,7 @@ sudo /etc/init.d/nginx start
 # Setup the project database
 #
 cd chipseqbot # change directories to the location where manage.py lives
+mkdir ../assets
 python manage.py createsuperuser # --> this will prompt you for a new username and password
 python manage.py collectstatic
 python manage.py migrate

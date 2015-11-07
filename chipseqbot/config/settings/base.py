@@ -169,7 +169,7 @@ SITE_ID=1
 ########## STATIC FILE CONFIGURATION
 # https://docs.djangoproject.com/en/dev/ref/settings/#static-root
 #STATIC_ROOT = str(PROJECT_ROOT('staticfiles'))
-STATIC_ROOT = join(PROJECT_ROOT, 'static')
+STATIC_ROOT = '/home/ubuntu/chipseqbot/assets'
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [join(PROJECT_ROOT, 'static')]
