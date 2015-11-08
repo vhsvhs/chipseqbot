@@ -67,7 +67,7 @@ TEMPLATES = [
             'context_processors': [
             # Already defined Django-related contexts here
             # `allauth` needs this from django
-            #'django.template.context_processors.request',
+            'django.template.context_processors.request',
             #'django.contrib.auth.context_processors.auth',
             'django.contrib.auth.context_processors.auth',
             'django.template.context_processors.debug',
@@ -129,13 +129,13 @@ DJANGO_APPS = (
 THIRD_PARTY_APPS = (
     'allauth',
     'allauth.account',
-    'allauth.socialaccount',
-    'allauth.socialaccount.providers.google',
-    'allauth.socialaccount.providers.openid',
+    #'allauth.socialaccount',
+    #'allauth.socialaccount.providers.google',
+    #'allauth.socialaccount.providers.openid',
 )
 
 PROJECT_APPS = (
-    'csbportal',
+    #'csbportal',
 )
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + PROJECT_APPS

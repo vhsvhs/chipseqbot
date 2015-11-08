@@ -1,5 +1,6 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
+from . import views
 
 urlpatterns = patterns('',
     # Examples:
@@ -10,6 +11,6 @@ urlpatterns = patterns('',
     
     url(r'^admin/', include(admin.site.urls)),
     #url(r'^accounts/', include('allauth.urls')),
-    url(r'^$', include('allauth.urls')),
+    url(r'^$', views.main_page),
     #url(r'^csbportal/', include('csbportal.urls'))
 )
