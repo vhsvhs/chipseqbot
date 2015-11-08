@@ -61,7 +61,6 @@ SERVER_EMAIL = 'Serverbot <dev@%s>' % PROJECT_DOMAIN
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        #'DIRS': [join(PROJECT_ROOT, 'templates')],
         'DIRS':[],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -69,6 +68,7 @@ TEMPLATES = [
             # Already defined Django-related contexts here
             # `allauth` needs this from django
             'django.template.context_processors.request',
+            'django.contrib.auth.context_processors.auth',
             ],
         },
      },
