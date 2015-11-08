@@ -58,31 +58,6 @@ EMAIL_SUBJECT_PREFIX = '[%s] ' % PROJECT_NAME
 SERVER_EMAIL = 'Serverbot <dev@%s>' % PROJECT_DOMAIN
 ########## END EMAIL CONFIGURATION
 
-TEMPLATES = [
-    {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS':[ join(PROJECT_ROOT, 'templates') ],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-            # Already defined Django-related contexts here
-            # `allauth` needs this from django
-            'django.contrib.auth.context_processors.auth',
-            'django.contrib.messages.context_processors.messages',
-            #'django.contrib.auth.context_processors.auth',
-            'django.template.context_processors.request',
-            'django.template.context_processors.debug',
-            'django.template.context_processors.i18n',
-            'django.template.context_processors.media',
-            'django.template.context_processors.static',
-            'django.template.context_processors.tz',
-
-            
-            ],
-        },
-     },
-]
-
 AUTHENTICATION_BACKENDS = (
     # Needed to login by username in Django admin, regardless of `allauth`
     'django.contrib.auth.backends.ModelBackend',
@@ -136,7 +111,7 @@ THIRD_PARTY_APPS = (
 )
 
 PROJECT_APPS = (
-    #'csbportal',
+    'csbportal',
 )
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + PROJECT_APPS
@@ -168,6 +143,34 @@ ROOT_URLCONF = 'config.urls'
 WSGI_APPLICATION = 'config.wsgi.application'
 
 #AUTH_USER_MODEL = 'accounts.User'
+
+TEMPLATE_DIRS = []
+for aa in PROJECT_APPS:
+    dirname = join( join(PROJECT_ROOT, aa), "templates" )
+    TEMPLATE_DIRS.append( dirname )
+
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS':[ join(PROJECT_ROOT, 'templates'), TEMPLATE_DIRS ],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+            # Already defined Django-related contexts here
+            # `allauth` needs this from django
+            'django.contrib.auth.context_processors.auth',
+            'django.contrib.messages.context_processors.messages',
+            #'django.contrib.auth.context_processors.auth',
+            'django.template.context_processors.request',
+            'django.template.context_processors.debug',
+            'django.template.context_processors.i18n',
+            'django.template.context_processors.media',
+            'django.template.context_processors.static',
+            'django.template.context_processors.tz',            
+            ],
+        },
+     },
+]
 
 ########## LOGIN/LOGOUT CONFIGURATION
 # https://docs.djangoproject.com/en/dev/ref/settings/#login-redirect-url
