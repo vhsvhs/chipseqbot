@@ -61,7 +61,7 @@ SERVER_EMAIL = 'Serverbot <dev@%s>' % PROJECT_DOMAIN
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS':[],
+        'DIRS':[ join(PROJECT_ROOT, '/static') ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
