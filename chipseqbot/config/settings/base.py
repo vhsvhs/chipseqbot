@@ -50,7 +50,6 @@ PROJECT_DOMAIN = '%s.com' % PROJECT_NAME.lower()
 path.append(CONFIG_ROOT)
 ########## END PATH CONFIGURATION
 
-
 ########## EMAIL CONFIGURATION
 # https://docs.djangoproject.com/en/dev/ref/settings/#email-subject-prefix
 EMAIL_SUBJECT_PREFIX = '[%s] ' % PROJECT_NAME
@@ -62,7 +61,8 @@ SERVER_EMAIL = 'Serverbot <dev@%s>' % PROJECT_DOMAIN
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [join(PROJECT_ROOT, 'templates')],
+        #'DIRS': [join(PROJECT_ROOT, 'templates')],
+        'DIRS':[],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -129,7 +129,7 @@ PROJECT_APPS = (
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
     'allauth.socialaccount.providers.openid',
-    'csbportal',
+    #'csbportal',
 )
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + PROJECT_APPS
@@ -162,7 +162,6 @@ ROOT_URLCONF = 'config.urls'
 WSGI_APPLICATION = 'config.wsgi.application'
 
 #AUTH_USER_MODEL = 'accounts.User'
-
 
 ########## LOGIN/LOGOUT CONFIGURATION
 # https://docs.djangoproject.com/en/dev/ref/settings/#login-redirect-url
