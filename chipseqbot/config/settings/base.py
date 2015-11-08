@@ -119,17 +119,15 @@ DJANGO_APPS = (
 )
 
 THIRD_PARTY_APPS = (
-    #'authtools',
-)
-
-PROJECT_APPS = (
-    #'apps.accounts',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
     'allauth.socialaccount.providers.openid',
-    #'csbportal',
+)
+
+PROJECT_APPS = (
+    'csbportal',
 )
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + PROJECT_APPS
