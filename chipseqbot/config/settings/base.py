@@ -59,6 +59,29 @@ EMAIL_SUBJECT_PREFIX = '[%s] ' % PROJECT_NAME
 SERVER_EMAIL = 'Serverbot <dev@%s>' % PROJECT_DOMAIN
 ########## END EMAIL CONFIGURATION
 
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+            # Already defined Django-related contexts here
+            # `allauth` needs this from django
+            'django.template.context_processors.request',
+            ],
+        },
+     },
+]
+
+TEMPLATE_DIRS = [join(PROJECT_ROOT, 'templates')]
+
+AUTHENTICATION_BACKENDS = (
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
+    # `allauth` specific authentication methods, such as login by e-mail
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
 
 ########## MANAGER CONFIGURATION
 # See https://docs.djangoproject.com/en/dev/ref/settings/#admins
@@ -103,9 +126,11 @@ THIRD_PARTY_APPS = (
 
 PROJECT_APPS = (
     #'apps.accounts',
-    #'allauth',
-    #'allauth.account',
-    #'allauth.socialaccount',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
+    'allauth.socialaccount.providers.openid',
 )
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + PROJECT_APPS
