@@ -24,7 +24,9 @@ def get_env_variable(var_name):
         raise ImproperlyConfigured(error_msg)
 
 # URL of the login page.
-LOGIN_URL = '/login/'
+#LOGIN_URL = '/login/'
+from django.core.urlresolvers import reverse_lazy
+LOGIN_URL = 'allauth.account.login'
 
 ########## PATH CONFIGURATION
 # Absolute filesystem path to the config directory:
