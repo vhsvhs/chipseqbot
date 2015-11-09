@@ -1,0 +1,43 @@
+{% load url from future %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{% block head_title %}{% endblock %}</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static "phylobot/phylobot.css" %}">  
+    <link rel="stylesheet" type="text/css" href="{% static "phylobot/basic.css" %}">    
+    {% block extra_head %}
+    {% endblock %}
+  </head>
+  <body>
+
+  <header>
+    {% load staticfiles %}
+    <div align="center">
+  	<a href="../"><img src="{% static 'phylobot/phylobot_bot.png' %}" width="150px" style="padding-top:30px"></a>
+	</div>
+  </header>
+
+
+
+    {% block body %}
+
+    {% if messages %}
+    <div>
+      <strong>Messages:</strong>
+      <ul>
+	{% for message in messages %}
+	<li>{{message}}</li>
+	{% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+
+    
+    {% block content %}
+    {% endblock %}
+    {% endblock %}
+    {% block extra_body %}
+    {% endblock %}
+  </body>
+</html>
