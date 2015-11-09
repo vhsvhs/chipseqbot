@@ -10,6 +10,6 @@ urlpatterns = patterns('',
     (r'^robots.txt$', lambda r: HttpResponse("User-agent: *\nDisallow: /", mimetype="text/plain")),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^accounts/', include('allauth.urls')),
+    url(r'^csbportal/', include('csbportal.urls')),
     url(r'^$', views.main_page),
-    url(r'^csbportal/', include('csbportal.urls'))
 )
