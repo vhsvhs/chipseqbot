@@ -37,6 +37,7 @@ sudo -u postgres psql -c "CREATE DATABASE csbotdb"
 sudo -u postgres psql --dbname=csbotdb -c "CREATE USER csbotuser WITH PASSWORD 'csbotpass'"
 sudo -u postgres psql --dbname=csbotdb -c "ALTER ROLE csbotuser SET timezone TO 'UTC-8'"
 sudo -u postgres psql --dbname=csbotdb -c "GRANT ALL PRIVILEGES ON DATABASE csbotdb TO csbotuser"
+sudo -u postgres psql --dbname=csbotdb -c "ALTER USER csbotuser CREATEDB"
 
 # Install Python packages
 sudo apt-get -y install python-dev
@@ -57,7 +58,6 @@ sudo cp aws_setup/nginx.conf /etc/nginx/nginx.conf
 sudo /etc/init.d/nginx stop
 sudo /etc/init.d/nginx reload
 sudo /etc/init.d/nginx start
-
 
 #
 # Setup the project database
