@@ -37,6 +37,10 @@ sudo -u postgres psql -c "CREATE DATABASE csbotdb"
 sudo -u postgres psql --dbname=csbotdb -c "CREATE USER csbotuser WITH PASSWORD 'csbotpass'"
 sudo -u postgres psql --dbname=csbotdb -c "ALTER ROLE csbotuser SET timezone TO 'UTC-8'"
 sudo -u postgres psql --dbname=csbotdb -c "GRANT ALL PRIVILEGES ON DATABASE csbotdb TO csbotuser"
+
+sudo -u postgres psql --dbname=csbotdb -c "ALTER USER django CREATEDB"
+
+sudo -u postgres psql --dbname=csbotdb -c "GRANT ALL PRIVILEGES ON DATABASE csbotdb TO csbotuser"
 sudo -u postgres psql --dbname=csbotdb -c "ALTER USER CREATEDB"
 
 # Install Python packages
