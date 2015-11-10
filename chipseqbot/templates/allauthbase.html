@@ -4,8 +4,10 @@
   <head>
     <title>{% block head_title %}{% endblock %}</title>
     {% load staticfiles %}
-    <link rel="stylesheet" type="text/css" href="{% static "phylobot/phylobot.css" %}">  
-    <link rel="stylesheet" type="text/css" href="{% static "phylobot/basic.css" %}">    
+    <link rel="stylesheet" type="text/css" href="{% static "css/csbot.css" %}">  
+    <link rel="stylesheet" type="text/css" href="{% static "css/style.css" %}">    
+    <link rel="stylesheet" type="text/css" href="{% static "css/basic.css" %}">  
+    <link rel="stylesheet" type="text/css" href="{% static "css/tooltips.css" %}">  
     {% block extra_head %}
     {% endblock %}
   </head>
