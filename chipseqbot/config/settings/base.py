@@ -175,14 +175,11 @@ TEMPLATES = [
 ]
 
 ########## LOGIN/LOGOUT CONFIGURATION
-# https://docs.djangoproject.com/en/dev/ref/settings/#login-redirect-url
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/accounts/profile'
 
-# https://docs.djangoproject.com/en/dev/ref/settings/#login-url
-LOGIN_URL = '/login/'
+LOGIN_URL = '/accounts/login/'
 
-# https://docs.djangoproject.com/en/dev/ref/settings/#logout-url
-LOGOUT_URL = '/logout/'
+LOGOUT_URL = '/accounts/logout/'
 ########## END LOGIN/LOGOUT CONFIGURATION
 
 # Internationalization
@@ -202,7 +199,6 @@ SITE_ID=1
 
 ########## STATIC FILE CONFIGURATION
 # https://docs.djangoproject.com/en/dev/ref/settings/#static-root
-#STATIC_ROOT = str(PROJECT_ROOT('staticfiles'))
 STATIC_ROOT = '/home/ubuntu/chipseqbot/assets'
 STATIC_URL = '/static/'
 
