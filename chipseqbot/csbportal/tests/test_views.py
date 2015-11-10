@@ -14,3 +14,5 @@ class UserProfileTest(TestCase):
     def setUp(self):
         self.factory = RequestFactory()
         
+    def tearDown(self):
+        del self.factory
