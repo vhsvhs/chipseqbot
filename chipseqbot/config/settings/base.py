@@ -129,16 +129,28 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-DATABASES = {
+if 'RDS_HOSTNAME' in os.environ:
+    DATABASES = {
         'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-            'NAME': 'csbotdb',                      # Or path to database file if using sqlite3.
-            'USER': 'django',
-            'PASSWORD': 'csbotpass',
-            'HOST': 'localhost',                      # Empty for localhost through domain sockets or           '127.0.0.1' for localhost through TCP.
-            'PORT': '5432',                      # Set to empty string for default.
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': os.environ['RDS_DB_NAME'],
+            'USER': os.environ['RDS_USERNAME'],
+            'PASSWORD': os.environ['RDS_PASSWORD'],
+            'HOST': os.environ['RDS_HOSTNAME'],
+            'PORT': os.environ['RDS_PORT'],
         }
     }
+else:
+    DATABASES = {
+            'default': {
+                'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+                'NAME': 'csbotdb',                      # Or path to database file if using sqlite3.
+                'USER': 'django',
+                'PASSWORD': 'csbotpass',
+                'HOST': 'localhost',                      # Empty for localhost through domain sockets or           '127.0.0.1' for localhost through TCP.
+                'PORT': '5432',                      # Set to empty string for default.
+            }
+        }
 
 ROOT_URLCONF = 'config.urls'
 
